@@ -15,7 +15,7 @@ namespace WeatherForecastApp
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            SetAppConfig();
+            SetAppSecrets();
             SetUserConfig();
 
             AppSecrets secrets = _appConfig.GetSection("AppSecrets").Get<AppSecrets>();
@@ -28,11 +28,11 @@ namespace WeatherForecastApp
         /// <summary>
         /// Load settings from appsettings.json
         /// </summary>
-        private void SetAppConfig()
+        private void SetAppSecrets()
         {
             var builder = new ConfigurationBuilder();
 
-            builder.AddJsonFile("appsettings.json");
+            builder.AddJsonFile("appsecrets.json");
 
             _appConfig = builder.Build();
         }
