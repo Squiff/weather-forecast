@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="WeatherForecastApp.View.ForecastSummary"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:WeatherForecastApp.View" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="200">
+    <!-- datacontext for the control should be DailyWeatherViewModel-->
+    <UserControl.Resources>
+        <view:DateStringConverter x:Key="DateStringConverter"/>
+        <view:NumericToDegrees x:Key="DegreesConverter"/>
+    </UserControl.Resources>
+    <materialDesign:Card>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <TextBlock 
+                    Text="{Binding Date, Converter={StaticResource DateStringConverter}}" 
+                    HorizontalAlignment="Center"
+                    Margin="0 5 0 0"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Image Source="{Binding Weather.IconURI}" ToolTip="{Binding Weather.Description}"/>
+            </Grid>
+            <Grid Grid.Row="2" Margin="0 0 0 5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" 
+                           Text="{Binding DisplayMinTemp, Converter={StaticResource DegreesConverter}}" 
+                           HorizontalAlignment="Center" 
+                           ToolTip="Minimum Temperature"
+                           />
+                <TextBlock Grid.Column="1" 
+                           Text="{Binding DisplayMaxTemp, Converter={StaticResource DegreesConverter}}"
+                           HorizontalAlignment="Center" 
+                           ToolTip="Maximum Temperature"
+                           />
+            </Grid>
+        </Grid>
+    </materialDesign:Card>
+</UserControl>

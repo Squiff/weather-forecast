@@ -1,0 +1,105 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:view="clr-namespace:WeatherForecastApp.View"
+                    >
+    <!-- Converters -->
+    <view:DateTimeToTimeConverter x:Key="DateTimetoTimeConverter"/>
+    <view:TempUnitEnumConverter x:Key="TempUnitConverter"/>
+    <view:NumericToDegrees x:Key="DegreesConverter"/>
+    <view:ObjectVisibilityConverter x:Key="ObjectVisibilityConverter"/>
+    
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="ErrorForegroundBrush" Color="#FFA94442"/>
+    <SolidColorBrush x:Key="ErrorBrush" Color="#FFF2DEDE"/>
+
+    <!-- Material Design Override -->
+    <Style TargetType="materialDesign:Card">
+        <Setter Property="Background" Value="#FF80DEEA"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+    </Style>
+    
+    <!-- Styles -->
+    <Style x:Key="DefaultWindow" TargetType="Window">
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="ResizeMode" Value="CanMinimize"/>
+        <Setter Property="WindowStyle" Value="None"/>
+    </Style>
+    
+    <Style x:Key="TopRowBorder" TargetType="Border">
+        <Setter Property="BorderThickness" Value="0 1 0 1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MaterialDesignDarkSeparatorBackground}" />
+    </Style>
+    <Style x:Key="RowBorder" TargetType="Border">
+        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MaterialDesignDarkSeparatorBackground}" />
+    </Style>
+    <Style x:Key="RowDetails" TargetType="TextBlock">
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    
+    <Style x:Key="WeatherHeader" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="CloseButton" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="{StaticResource PrimaryHueMidBrush}"/>
+        <Setter Property="Foreground" Value="#606060"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="Content">
+            <Setter.Value>
+                <materialDesign:PackIcon Kind="WindowClose"/>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MinimizeButton" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="{StaticResource PrimaryHueMidBrush}"/>
+        <Setter Property="Foreground" Value="#606060"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="Content">
+            <Setter.Value>
+                <materialDesign:PackIcon Kind="Minus" />
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="WhiteSmoke"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

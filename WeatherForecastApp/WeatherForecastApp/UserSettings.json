@@ -1,0 +1,8 @@
+﻿{
+    "location": {
+        "name": "London",
+        "Country":  "GB",
+            "Lon": 0,
+            "Lat": 51
+        }
+}

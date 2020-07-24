@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="WeatherForecastApp.View.ErrorItemsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:WeatherForecastApp.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="10" d:DesignWidth="10">
+    <Grid>
+        <ItemsControl ItemsSource="{Binding DisplayErrors}">
+            <ItemsControl.ItemTemplate>
+                <ItemContainerTemplate>
+                    <view:ErrorCard ParentItemSource="{Binding Path=ItemsSource,RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                </ItemContainerTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>
