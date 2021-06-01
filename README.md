@@ -1,7 +1,8 @@
 # Weather Forecast
-A simple weather forecast app showing current and daily weather forecasts. <br/>
-<br/>
-The app is an API client using data from the OpenWeather REST API. More information on the OpenWeather API can be found here: https://openweathermap.org/
+A simple weather forecast app showing current and daily weather forecasts. 
+
+
+The app is uses the OpenWeather REST API. More information can be found here: https://openweathermap.org/
 
 ## Setup
 1. Get a (free of charge) API key from https://openweathermap.org/price
