@@ -1,5 +1,5 @@
 # Weather Forecast
-A simple weather forecast app showing current and daily weather forecasts. 
+A simple weather forecast app showing current and daily weather forecasts for a specified location
 
 
 The app is uses the OpenWeather REST API. More information can be found here: https://openweathermap.org/
